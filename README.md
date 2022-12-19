@@ -1,6 +1,8 @@
 # Algorand-Casino
 A gambling sire using smart contracts on the Algorand blockchain
 
+[Live](https://algorand-nft-site.web.app)
+
 ## Setup
 In the /client and /server directories run ``` npm install ``` to install all dependencies 
 
