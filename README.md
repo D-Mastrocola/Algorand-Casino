@@ -4,9 +4,11 @@ A gambling sire using smart contracts on the Algorand blockchain
 [Live](https://algorand-nft-site.web.app)
 
 ## Setup
-In the /client and /server directories run ``` npm install ``` to install all dependencies 
+You must have [NodeJS](https://nodejs.org/en/) and [MySQL](https://dev.mysql.com/downloads/mysql/) installed
+In the root directory run ``` npm install ``` to install all dependencies.
+
 
 
 ## Running
 
-In the /client and /server directories ```npm start``` to start the react project
+In the root directory run ```npm start``` to start the the server
