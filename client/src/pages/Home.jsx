@@ -12,8 +12,8 @@ class Home extends Component {
     return (
       <main>
         <h2>Home</h2>
-        <div className="col-12 p-3 container align-items-center justify-content-between m-0">
-          <div className="row container align-items-center justify-content-between w-100">
+        <div className="p-3 flex align-items-center justify-content-center m-0">
+          <div className="row flex align-items-center justify-content-between">
             {(function () {
               let rows = [];
 
@@ -23,7 +23,7 @@ class Home extends Component {
               return rows;
             })()}
           </div>
-          <div className="row">
+          <div className="row flex align-items-center justify-content-between">
             {(function () {
               let rows = [];
 
