@@ -9,7 +9,7 @@ class Artwork extends Component {
   }
   render() {
     return (
-      <article className="col-2">
+      <article className="col">
         <img src="/images/test_nft.jfif" style={{ maxWidth: "100%" }} />
         <h3>
           <a>Test NFT</a>
