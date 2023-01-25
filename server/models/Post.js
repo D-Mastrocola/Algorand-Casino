@@ -6,7 +6,8 @@ class Post extends Model {
   static upvote(body, models) {
     return models.Vote.create({
       user_id: body.user_id,
-      post_id: body.post_id
+      post_id: body.post_id,
+      trx_id: body.trx_id
     }).then(() => {
       return Post.findOne({
         where: {
@@ -40,7 +41,7 @@ Post.init(
       type: DataTypes.STRING,
       allowNull: false
     },
-    post_url: {
+    trx_id: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
