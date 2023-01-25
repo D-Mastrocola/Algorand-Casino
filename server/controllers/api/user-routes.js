@@ -58,25 +58,29 @@ router.get("/:id", (req, res) => {
 });
 
 // POST /api/users
-router.post("/", withAuth, (req, res) => {
+router.post("/", (req, res) => {
   // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
   User.create({
-    username: req.body.username,
-    email: req.body.email,
-    password: req.body.password,
-  }).then((dbUserData) => {
-    req.session.save(() => {
+    wallet: req.body.wallet,
+  })
+    .then((dbUserData) => {
+      /*req.session.save(() => {
       req.session.user_id = dbUserData.id;
-      req.session.username = dbUserData.username;
+      req.session.wallet = dbUserData.wallet;
       req.session.loggedIn = true;
 
       res.json(dbUserData);
+    });*/
+      res.json(dbUserData);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
     });
-  });
 });
 
 // PUT /api/users/1
-router.put("/:id", withAuth, (req, res) => {
+/*router.put("/:id", withAuth, (req, res) => {
   // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
 
   // if req.body has exact key/value pairs to match the model, you can just use `req.body` instead
@@ -97,7 +101,7 @@ router.put("/:id", withAuth, (req, res) => {
       console.log(err);
       res.status(500).json(err);
     });
-});
+});*/
 
 // DELETE /api/users/1
 router.delete("/:id", withAuth, (req, res) => {
@@ -122,7 +126,7 @@ router.delete("/:id", withAuth, (req, res) => {
 router.post("/login", (req, res) => {
   User.findOne({
     where: {
-      email: req.body.email,
+      wallet: req.body.wallet,
     },
   }).then((dbUserData) => {
     if (!dbUserData) {
@@ -130,7 +134,7 @@ router.post("/login", (req, res) => {
       return;
     }
 
-    const validPassword = dbUserData.checkPassword(req.body.password);
+    const validPassword = true; //dbUserData.checkPassword(req.body.password);
 
     if (!validPassword) {
       res.status(400).json({ message: "Incorrect password!" });
@@ -138,12 +142,11 @@ router.post("/login", (req, res) => {
     }
 
     req.session.save(() => {
-      // declare session variables
       req.session.user_id = dbUserData.id;
-      req.session.username = dbUserData.username;
+      req.session.wallet = dbUserData.wallet;
       req.session.loggedIn = true;
 
-      res.json({ user: dbUserData, message: "You are now logged in!" });
+      res.json(dbUserData);
     });
   });
 });

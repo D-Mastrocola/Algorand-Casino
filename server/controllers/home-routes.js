@@ -34,10 +34,10 @@ router.get("/", (req, res) => {
   })
     .then((dbPostData) => {
       const posts = dbPostData.map((post) => post.get({ plain: true }));
-      res.render("homepage", {
+      /*res.render("homepage", {
         posts,
         loggedIn: req.session.loggedIn,
-      });
+      });*/
     })
     .catch((err) => {
       console.log(err);
@@ -50,7 +50,7 @@ router.get("/login", (req, res) => {
     return;
   }
 
-  res.render("login");
+  //res.render("login");
 });
 router.get("/post/:id", (req, res) => {
   Post.findOne({

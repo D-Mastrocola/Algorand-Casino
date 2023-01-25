@@ -25,30 +25,10 @@ User.init(
       autoIncrement: true
     },
     // define a username column
-    username: {
+    wallet: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    // define an email column
-    email: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      // there cannot be any duplicate email values in this table
-      unique: true,
-      // if allowNull is set to false, we can run our data through validators before creating the table data
-      validate: {
-        isEmail: true
-      }
-    },
-    // define a password column
-    password: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        // this means the password must be at least four characters long
-        len: [4]
-      }
-    }
   },
   {
     // TABLE CONFIGURATION OPTIONS GO HERE (https://sequelize.org/v5/manual/models-definition.html#configuration))
@@ -57,7 +37,7 @@ User.init(
 
     hooks: {
       // set up beforeCreate lifecycle "hook" functionality
-      async beforeCreate(newUserData) {
+      /*async beforeCreate(newUserData) {
         newUserData.password = await bcrypt.hash(newUserData.password, 10);
         return newUserData;
       },
@@ -65,7 +45,7 @@ User.init(
       async beforeUpdate(updatedUserData) {
         updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
         return updatedUserData;
-      }
+      }*/
     },
     sequelize,
     // don't automatically create createdAt/updatedAt timestamp fields
