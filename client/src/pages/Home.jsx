@@ -10,7 +10,7 @@ class Home extends Component {
   }
   render() {
     return (
-      <main>
+      <main className="text-center">
         <h2>Home</h2>
         <div className="p-3 flex align-items-center justify-content-center m-0">
           <div className="row flex align-items-center justify-content-between">
