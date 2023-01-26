@@ -11,26 +11,29 @@ class Artwork extends Component {
   render() {
     console.log(this.state.id);
     return (
-      <article className="col card p-0 m-3">
-        <a
-          href={"/posts/" + this.state.id}
-          className={"text-dark"}
-          style={{ textDecoration: "none" }}
-        >
+      <main className="col">
+        <div className="content">
           <img
             src="/images/test_nft.jfif"
-            style={{ maxWidth: "100%" }}
+            style={{ maxWidth: "30%" }}
             className="card-img-top"
           />
-          <div class="card-body">
-            <h3 class="card-title" style={{textDecoration: 'underline'}}>Test NFT</h3>
-            <p class="card-text">
+          <div class="">
+            <h3 class="" style={{ textDecoration: "underline" }}>
+              Test NFT
+            </h3>
+            <p class="">
               Some quick example text to build on the card title and make up the
               bulk of the card's content.
             </p>
           </div>
-        </a>
-      </article>
+        </div>
+        <div className="comments">
+            <h6>Dingle</h6>
+            <p>1/26/2023</p>
+            <p>Shitty art</p>
+        </div>
+      </main>
     );
   }
 }

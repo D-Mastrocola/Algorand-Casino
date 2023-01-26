@@ -58,7 +58,9 @@ class Header extends Component {
   render() {
     return (
       <header className="bg-dark text-light col-12 d-flex justify-content-between align-items-center px-4 border border-2 border-secondary border-top-0 border-start-0 border-end-0 ">
+        <a href="/" className="text-light" style={{textDecoration: 'none'}}>
         <h1>Mastrocola.io</h1>
+        </a>
         <button
           className="btn btn-warning fs-5"
           onClick={() => this.connectWallet()}

@@ -1,5 +1,5 @@
 import { Component } from "react";
-import Artwork from "./components/artwork/Artwork";
+import ArtworkCard from "./components/artwork/Card/ArtworkCard";
 
 class Home extends Component {
   constructor(props) {
@@ -18,7 +18,7 @@ class Home extends Component {
               let rows = [];
 
               for (let i = 0; i < 4; i++) {
-                rows.push(<Artwork />);
+                rows.push(<ArtworkCard id={i+1}/>);
               }
               return rows;
             })()}
@@ -28,7 +28,7 @@ class Home extends Component {
               let rows = [];
 
               for (let i = 0; i < 4; i++) {
-                rows.push(<Artwork />);
+                rows.push(<ArtworkCard id={i+5}/>);
               }
               return rows;
             })()}
